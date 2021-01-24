@@ -8,13 +8,15 @@ import { LocationsComponent } from './locations/locations.component';
 import { CharactersComponent } from './characters/characters.component';
 import { HeaderComponent } from './header/header.component';
 import { CharactersService } from './services/characters.service';
+import { CharacterCardComponent } from './character-card/character-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LocationsComponent,
     CharactersComponent,
-    HeaderComponent
+    HeaderComponent,
+    CharacterCardComponent
   ],
   imports: [
     BrowserModule,

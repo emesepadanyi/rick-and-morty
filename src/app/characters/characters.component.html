@@ -2,6 +2,6 @@
 
 <ul class="characters">
     <li *ngFor="let character of characters">
-        {{character.name}}
+        <app-character-card [character]=character></app-character-card>
     </li>
 </ul>
