@@ -10,7 +10,9 @@ import { CharactersService } from '../services/characters.service';
 })
 export class CharactersComponent implements OnInit {
   info: Info | undefined;
-  characters: Character[] | undefined;
+  characters: Character[] = [];
+
+  page: number = 1;
 
   constructor(private charactersService: CharactersService) { }
 
@@ -24,6 +26,16 @@ export class CharactersComponent implements OnInit {
       .subscribe(result => {
         this.characters = result.results;
         this.info = result.info;
+      });
+  }
+
+  pageChanged(newPage: number) {
+    this.charactersService
+      .getCharactersByPage(newPage)
+      .subscribe(result => {
+        this.characters = result.results;
+        this.info = result.info;
+        this.page = newPage;
       });
   }
 }
