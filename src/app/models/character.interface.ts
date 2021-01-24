@@ -1,3 +1,5 @@
+import { LocationMini } from "./location-mini.interface";
+
 export interface Character {
     id: number;         // The id of the character.
     name: string;       // The name of the character.
@@ -6,8 +8,8 @@ export interface Character {
     type: string;       // The type or subspecies of the character.
     gender: string;     // The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').
     // TODO add location
-    origin: object;     // Name and link to the character's origin location.
-    location: object;   // Name and link to the character's last known location endpoint.
+    origin: LocationMini;     // Name and link to the character's origin location.
+    location: LocationMini;   // Name and link to the character's last known location endpoint.
     image: string;      // (url)	Link to the character's image. All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
     episode: string[];  // (urls)	List of episodes in which this character appeared.
     url: string;        // (url)	Link to the character's own URL endpoint.

@@ -1,7 +1,7 @@
-<p>characters works!</p>
-
-<ul class="characters">
-    <li *ngFor="let character of characters">
-        <app-character-card [character]=character></app-character-card>
-    </li>
-</ul>
+<div class="container">
+    <div class="row justify-content-center">
+        <div *ngFor="let character of characters" class="card col-lg-3 col-md-6 col-sm-12">
+            <app-character-card [character]=character></app-character-card>
+        </div>
+    </div>
+</div>
