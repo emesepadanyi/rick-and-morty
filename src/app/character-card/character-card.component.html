@@ -2,4 +2,5 @@
 <div class="card-body">
     <h5 class="card-title">{{character?.name}}</h5>
     <p class="card-text">{{character?.location?.name}}</p>
+    <app-time-ago [date]=character?.created></app-time-ago>
 </div>

@@ -11,6 +11,8 @@ import { HeaderComponent } from './header/header.component';
 import { CharactersService } from './services/characters.service';
 import { CharacterCardComponent } from './character-card/character-card.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { TimeAgoComponent } from './time-ago/time-ago.component';
+import { TimeAgoPipe } from './pipes/time-ago.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     CharactersComponent,
     HeaderComponent,
     CharacterCardComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    TimeAgoComponent,
+    TimeAgoPipe
   ],
   imports: [
     BrowserModule,
