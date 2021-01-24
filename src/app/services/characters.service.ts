@@ -22,4 +22,10 @@ export class CharactersService extends BaseService {
        .set('page', page.toString());
      return this.http.get<Characters>(this.charactersURI, {params});
    }
+
+  searchCharacters(options: { type: string, word: string }) {
+     const params = new HttpParams()
+       .set(options.type, options.word);
+     return this.http.get<Characters>(this.charactersURI, {params});
+  }
 }

@@ -13,6 +13,7 @@ export class CharactersComponent implements OnInit {
   characters: Character[] = [];
 
   page: number = 1;
+  searchQuery: { type: string, word: string } | undefined;
 
   constructor(private charactersService: CharactersService) { }
 
@@ -36,6 +37,17 @@ export class CharactersComponent implements OnInit {
         this.characters = result.results;
         this.info = result.info;
         this.page = newPage;
+      });
+  }
+
+  searchCharacters(options: { type: string, word: string }) {
+    this.charactersService
+      .searchCharacters(options)
+      .subscribe(result => {
+        this.characters = result.results;
+        this.info = result.info;
+        this.searchQuery = options;
+        this.page = 1;
       });
   }
 }
