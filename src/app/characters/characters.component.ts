@@ -13,9 +13,11 @@ export class CharactersComponent implements OnInit {
   characters: Character[] = [];
 
   page: number = 1;
-  searchQuery: { type: string, word: string } | undefined;
+  searchQuery: { page?: string, type?: string, word?: string };
 
-  constructor(private charactersService: CharactersService) { }
+  constructor(private charactersService: CharactersService) {
+    this.searchQuery = { page: "1" }
+  }
 
   ngOnInit(): void {
     this.getCharacters();
@@ -23,7 +25,7 @@ export class CharactersComponent implements OnInit {
 
   getCharacters() {
     this.charactersService
-      .getCharacters()
+      .getCharacters(this.searchQuery)
       .subscribe(result => {
         this.characters = result.results;
         this.info = result.info;
@@ -31,23 +33,18 @@ export class CharactersComponent implements OnInit {
   }
 
   pageChanged(newPage: number) {
-    this.charactersService
-      .getCharactersByPage(newPage)
-      .subscribe(result => {
-        this.characters = result.results;
-        this.info = result.info;
-        this.page = newPage;
-      });
+    this.page = newPage;
+    this.searchQuery.page = newPage.toString();
+
+    this.getCharacters();
   }
 
   searchCharacters(options: { type: string, word: string }) {
-    this.charactersService
-      .searchCharacters(options)
-      .subscribe(result => {
-        this.characters = result.results;
-        this.info = result.info;
-        this.searchQuery = options;
-        this.page = 1;
-      });
+    this.page = 1;
+    this.searchQuery.page = "1";
+    this.searchQuery.type = options.type;
+    this.searchQuery.word = options.word;
+
+    this.getCharacters();
   }
 }

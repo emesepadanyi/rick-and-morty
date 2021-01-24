@@ -11,21 +11,19 @@ export class CharactersService extends BaseService {
 
   constructor(private http: HttpClient) {
     super();
-   }
+  }
 
-   getCharacters(): Observable<Characters>{
-     return this.http.get<Characters>(this.charactersURI);
-   }
+  getCharacters(options?: { page?: string, type?: string, word?: string }): Observable<Characters> {
+    let params = new HttpParams();
+    if (options) {
+      if (options.page) {
+        params = params.set("page", options.page);
+      }
+      if (options.type && options.word) {
+        params = params.set(options.type, options.word);
+      }
+    }
 
-   getCharactersByPage(page: number): Observable<Characters>{
-     const params = new HttpParams()
-       .set('page', page.toString());
-     return this.http.get<Characters>(this.charactersURI, {params});
-   }
-
-  searchCharacters(options: { type: string, word: string }) {
-     const params = new HttpParams()
-       .set(options.type, options.word);
-     return this.http.get<Characters>(this.charactersURI, {params});
+    return this.http.get<Characters>(this.charactersURI, { params });
   }
 }
