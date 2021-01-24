@@ -10,6 +10,7 @@ import { CharactersComponent } from './characters/characters.component';
 import { HeaderComponent } from './header/header.component';
 import { CharactersService } from './services/characters.service';
 import { CharacterCardComponent } from './character-card/character-card.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CharacterCardComponent } from './character-card/character-card.componen
     LocationsComponent,
     CharactersComponent,
     HeaderComponent,
-    CharacterCardComponent
+    CharacterCardComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,
