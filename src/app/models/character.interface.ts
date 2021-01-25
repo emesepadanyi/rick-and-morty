@@ -7,7 +7,6 @@ export interface Character {
     species: string;    // The species of the character.
     type: string;       // The type or subspecies of the character.
     gender: string;     // The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').
-    // TODO add location
     origin: LocationMini;     // Name and link to the character's origin location.
     location: LocationMini;   // Name and link to the character's last known location endpoint.
     image: string;      // (url)	Link to the character's image. All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.

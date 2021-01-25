@@ -13,6 +13,7 @@ import { CharacterCardComponent } from './character-card/character-card.componen
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { TimeAgoComponent } from './time-ago/time-ago.component';
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
+import { CharacterDetailsComponent } from './character-details/character-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TimeAgoPipe } from './pipes/time-ago.pipe';
     CharacterCardComponent,
     SearchbarComponent,
     TimeAgoComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    CharacterDetailsComponent
   ],
   imports: [
     BrowserModule,
