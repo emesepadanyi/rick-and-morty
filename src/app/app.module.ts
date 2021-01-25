@@ -14,6 +14,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { TimeAgoComponent } from './time-ago/time-ago.component';
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
+import { LoggingService } from './services/logging.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,10 @@ import { CharacterDetailsComponent } from './character-details/character-details
     AppRoutingModule,
     NgxPaginationModule
   ],
-  providers: [CharactersService],
+  providers: [
+    CharactersService,
+    LoggingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
