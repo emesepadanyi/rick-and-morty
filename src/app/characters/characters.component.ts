@@ -9,14 +9,14 @@ import { CharactersService } from '../services/characters.service';
   styleUrls: ['./characters.component.scss']
 })
 export class CharactersComponent implements OnInit {
+  searchTerms: string[] = ["name", "species", "type"];
   info: Info | undefined;
   characters: Character[] = [];
 
-  page: number = 1;
-  searchQuery: { page?: string, type?: string, word?: string };
+  searchQuery: { page?: number, type?: string, word?: string };
 
   constructor(private charactersService: CharactersService) {
-    this.searchQuery = { page: "1" }
+    this.searchQuery = { page: 1 }
   }
 
   ngOnInit(): void {
@@ -33,15 +33,13 @@ export class CharactersComponent implements OnInit {
   }
 
   pageChanged(newPage: number) {
-    this.page = newPage;
-    this.searchQuery.page = newPage.toString();
+    this.searchQuery.page = newPage;
 
     this.getCharacters();
   }
 
   searchCharacters(options: { type: string, word: string }) {
-    this.page = 1;
-    this.searchQuery.page = "1";
+    this.searchQuery.page = 1;
     this.searchQuery.type = options.type;
     this.searchQuery.word = options.word;
 

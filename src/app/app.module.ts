@@ -15,6 +15,8 @@ import { TimeAgoComponent } from './time-ago/time-ago.component';
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
 import { LoggingService } from './services/logging.service';
+import { LocationsService } from './services/locations.service';
+import { LocationCardComponent } from './location-card/location-card.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { LoggingService } from './services/logging.service';
     CharactersComponent,
     HeaderComponent,
     CharacterCardComponent,
+    LocationCardComponent,
     SearchbarComponent,
     TimeAgoComponent,
     TimeAgoPipe,
@@ -36,6 +39,7 @@ import { LoggingService } from './services/logging.service';
   ],
   providers: [
     CharactersService,
+    LocationsService,
     LoggingService
   ],
   bootstrap: [AppComponent]

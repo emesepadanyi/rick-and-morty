@@ -1,10 +1,7 @@
 <div class="row justify-content-center">
     <input class="col-lg-2 col-md-4 col-12" #searchWord (keyup.enter)="search(searchType.value, searchWord.value)">
     <select #searchType class="browser-default custom-select col-lg-2 col-md-4 col-12">
-        <option selected value="name">Name</option>
-        <option value="species">Species</option>
-        <option value="type">Type</option>
+        <option *ngFor="let searchTerm of searchTerms" selected value={{searchTerm}}> {{searchTerm | titlecase}} </option>
     </select>
-
     <button class="col-lg-2 col-md-4 col-12" (click)="search(searchType.value, searchWord.value)">Search!</button>
 </div>

@@ -3,21 +3,20 @@ import { BaseService } from './base.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Characters } from '../models/characters.interface';
-import { Character } from '../models/character.interface';
 import { LoggingService } from './logging.service';
+import { Locations } from '../models/locations.interface';
+import { LocationDetailed } from '../models/location-detailed';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CharactersService extends BaseService {
+export class LocationsService extends BaseService {
 
   constructor(private http: HttpClient, private loggingService: LoggingService) {
     super();
-
   }
 
-  getCharacters(options?: { page?: number, type?: string, word?: string }): Observable<Characters> {
+  getLocations(options?: { page?: number, type?: string, word?: string }): Observable<Locations> {
     let params = new HttpParams();
     if (options) {
       if (options.page) {
@@ -28,10 +27,10 @@ export class CharactersService extends BaseService {
       }
     }
 
-    return this.http.get<Characters>(this.charactersURI, { params }).pipe(tap(response => this.loggingService.log(response)));
+    return this.http.get<Locations>(this.locationsURI, { params }).pipe(tap(response => this.loggingService.log(response)));
   }
 
-  getCharacter(id: string): Observable<Character> {
-    return this.http.get<Character>(this.charactersURI + "/" + id).pipe(tap(response => this.loggingService.log(response)));
+  getLocation(id: string): Observable<LocationDetailed> {
+    return this.http.get<LocationDetailed>(this.charactersURI + "/" + id).pipe(tap(response => this.loggingService.log(response)));
   }
 }
